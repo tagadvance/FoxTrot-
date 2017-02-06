@@ -26,26 +26,16 @@ public class Eggcryption {
 			if (sb.length() > 0) {
 				sb.append(' ');
 			}
-			for (int i : word) {
-				char c = getCharacter(i);
+			for (int letter : word) {
+				char c = getCharacterFor(letter);
 				sb.append(c);
 			}
 		}
 		return sb;
 	}
 
-	private char getCharacter(int index) {
-		char alpha = 'a', omega = 'z';
-		char[] range = range(alpha, omega);
-		return range[index - 1];
-	}
-
-	private char[] range(char alpha, char omega) {
-		char[] key = new char[omega - alpha + 1];
-		for (int i = 0; i < key.length; i++) {
-			key[i] = alpha++;
-		}
-		return key;
+	private char getCharacterFor(int index) {
+		return (char) ('a' + index - 1);
 	}
 
 };
